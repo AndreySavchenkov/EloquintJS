@@ -18,10 +18,36 @@ printFarmInventory(7,15,3);
 //функция возвращающая меньшее из двух значений
 function min(x, y) {
   if(x > y) {
-    console.log(y);
+    return y;
   } else {
-    console.log(x);
+    return x;
   }
 }
 
-min(5,4);
+min(3,4);
+
+//функция показывающая четность числа
+function isEven(x) {
+  if (x % 2 == 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(isEven(50));
+
+
+//рекурсивная функция на четность, которая преобразует отрицательные числа
+function isEven(n) {
+  if (n == 0) { 
+    return true;
+  } else if (n == 1) {
+    return false;
+  } else if (n < 0) {
+    return isEven(-n);
+  } else {
+    return isEven(n - 2);
+  }
+}
+console.log(isEven(-50));
