@@ -14,3 +14,14 @@ function printFarmInventory(cows, chickens, pigs) {
 }
 
 printFarmInventory(7,15,3);
+
+//функция возвращающая меньшее из двух значений
+function min(x, y) {
+  if(x > y) {
+    console.log(y);
+  } else {
+    console.log(x);
+  }
+}
+
+min(5,4);
