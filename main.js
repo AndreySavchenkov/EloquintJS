@@ -64,3 +64,8 @@ for (let x = 0; x < 100; x++) {
     console.log(x);
   }
 }
+
+//треугольник в цикле
+for (let line = "#"; line.length < 8; line += "#") {
+  console.log(line);
+}
