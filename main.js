@@ -69,3 +69,21 @@ for (let x = 0; x < 100; x++) {
 for (let line = "#"; line.length < 8; line += "#") {
   console.log(line);
 }
+
+//шахматная доска
+let size = 8;
+
+let board = "";
+
+for(let y = 0; y < size; y++) {
+  for(let x = 0; x < size; x++) {
+    if((x + y) % 2 == 0) {
+     board += " "; 
+    } else {
+      board +="#";
+    }
+  }
+  board += "\n";
+}
+
+console.log(board);
