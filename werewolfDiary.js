@@ -102,3 +102,56 @@ function phi(table) {
 }
 console.log(phi([76,9,4,1]));
 
+// извлечение данных из журнала для составления таблицы 
+function tableFor(event, journal) {
+    let table = [0, 0, 0, 0];
+    for (let i = 0; i < journal.length; i++) {
+        let entry = journal[i]; 
+        let index = 0;
+        if(entry.events.includes(event)) index += 1;
+        if(entry.squirrel) index += 2;
+        table[index] += 1;
+    }
+    return table;
+}
+console.log(tableFor("weekend", JOURNAL));
+
+
+//перебор массива в цикле
+// 1й вариант
+for(let i = 0; i < JOURNAL.length; i++){
+    let entry = JOURNAL[i];
+    //сделать что-то с entry
+}
+
+
+//более простой способ
+for(let entry of JOURNAL) {
+    console.log(`${entry.events.length} событий.`);
+}
+
+//нахожу все типы событий
+function journalEvents(journal) {
+    let events = [];
+    for (let entry of journal) {
+        for (let event of entry.events) {
+            if (!events.includes(event)) {
+                events.push(event);
+            }
+        }
+    }
+    return events;
+}
+
+// нахожу все корреляции 
+for(let event of journalEvents(JOURNAL)) {
+    console.log(event + ":" , phi(tableFor(event, JOURNAL)));
+}
+
+//фильтруем результаты, что бы видеть от 0.1 или меньше -0.1
+for(let event of journalEvents(JOURNAL)) {
+    let correlation = phi(tableFor(event, JOURNAL));
+    if(correlation > 0.1 || correlation < -0.1) {
+        console.log(event + ":", correlation);
+    }
+}
