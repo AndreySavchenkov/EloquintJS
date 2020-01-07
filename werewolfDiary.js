@@ -1,3 +1,4 @@
+"use strict"
 /* Дневник оборотня из книги */
 var JOURNAL = [
     {"events":["carrot","exercise","weekend"],"squirrel":false},

@@ -1,3 +1,4 @@
+"use strict"
 // инвентаризация фермы с добавлением нулей до трех знаков в числе
 
 function zeroPad(number,width) {
