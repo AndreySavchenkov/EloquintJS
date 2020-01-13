@@ -43,3 +43,16 @@ class VillageState {
         }
     }
 }
+
+function runRobot(state, robot, memory) {
+    for (let turn = 0;; turn++) {
+        if (state.parcels.length == 0) {
+            console.log(`Выполнено за  ${turn} ходов`);
+            break;
+        }
+        let action = robot(state, memory);
+        state = state.move(action.direction);
+        memory = action.memory;
+        console.log(`Переход в направление ${action.direction}`);
+    }
+}
