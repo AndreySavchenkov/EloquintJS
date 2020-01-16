@@ -65,3 +65,16 @@ function randomPick(array) {
 function randomRobot(state) {
     return {direction: randomPick(roadGraph[state.place])};
 }
+
+VillageState.random = function(parcelCont = 5) {
+    let parcels = [];
+    for (let i = 0; i < parcelCount; i++) {
+        let address = randomPick(Object.keys(roadFraph));
+        let place;
+        do {
+            place = randomPick(Object.keys(roadGraph));
+        } while (place == adress);
+        parcels.push({place, address});
+    }
+    return new VillageState("Почта", parcels);
+};
